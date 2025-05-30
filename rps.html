@@ -40,20 +40,22 @@
         switch (humanChoice) {
             case "rock":
                 computerChoice == "rock" ? console.log("its a tie") : computerChoice == "paper" ? computerScore++ : humanScore++;
-                break; 
+                break;
             case "paper":
                 computerChoice == "paper" ? console.log("its a tie") : computerChoice == "scissor" ? computerScore++ : humanScore++;
-                break; 
+                break;
             case "scissor":
                 computerChoice == "scissor" ? console.log("its a tie") : computerChoice == "rock" ? computerScore++ : humanScore++;
                 break;
         }
         console.log("human:" + humanScore + "\n" + "computer:" + computerScore)
     }
-    let ui = playRound(getHumanChoice(), getComputerChoice())
-
-    while(humanScore!=5)
-    {
-        let ui = playRound(getHumanChoice(), getComputerChoice())
+//so we can decide how many game to play
+    function playgame(round) {
+        while (round != 0) {
+            playRound(getHumanChoice(), getComputerChoice())
+            round--;
+        }
     }
+    playgame(5); 
 </script>
