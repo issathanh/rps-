@@ -101,16 +101,22 @@ function addButton() {
 }
 //When the buttons are click 
 btnRock.addEventListener('click', () => {
-    if (max(humanScore,computerScore))
+    if (max(humanScore, computerScore))
         compare(rock, getComputerChoice())
+    else
+        printWinner()
 })
 btnPaper.addEventListener('click', () => {
-    if (max(humanScore,computerScore))
+    if (max(humanScore, computerScore))
         compare(paper, getComputerChoice())
+    else
+        printWinner()
 })
 btnScissor.addEventListener('click', () => {
-    if (max(humanScore,computerScore))
+    if (max(humanScore, computerScore))
         compare(scissor, getComputerChoice())
+    else
+        printWinner()
 })
 
 //print computer choice 
@@ -122,4 +128,9 @@ function printCompChoice(getComputerChoice) {
 }
 
 //check if human score and computer score is bigger than 5 
-let max = (humanScore, computerScore) => humanScore < 5 && computerScore < 5 ? true : false 
+let max = (humanScore, computerScore) => humanScore < 5 && computerScore < 5 ? true : false
+
+//print winner 
+function printWinner() {
+    humanScore = 5 ? compChoiceHeader.textContent = "Human win!" : compChoiceHeader.textContent = "Computer win!"
+}
