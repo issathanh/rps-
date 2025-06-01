@@ -39,6 +39,7 @@ function getHumanChoice(r) {
 
 let humanScore = 0;
 let computerScore = 0;
+//compare increase the score of whoever win in rock paper scissor 
 function compare(humanChoice, computerChoice) {
     
     switch (humanChoice) {
@@ -55,6 +56,7 @@ function compare(humanChoice, computerChoice) {
     console.log("human:" + humanScore + "\n" + "computer:" + computerScore)
 
 }
+//add score to whoever win
 function addScore(winner) {
     if (winner == "computer") {
         computerScore++
@@ -107,3 +109,6 @@ btnPaper.addEventListener('click', ()=>{
 btnScissor.addEventListener('click',()=>{
     compare(scissor,getComputerChoice())
 })
+
+compChoiceHeader = document.createElement("h3")
+div.appendChild(compChoiceHeader)
