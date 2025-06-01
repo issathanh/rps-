@@ -40,27 +40,29 @@ function getHumanChoice(r) {
 let humanScore = 0;
 let computerScore = 0;
 function compare(humanChoice, computerChoice) {
-
+    
     switch (humanChoice) {
-        case "rock":
-            computerChoice == "rock" ? console.log("its a tie") : computerChoice == "paper" ? addScore("winner") : addScore("human");
+        case rock: 
+            computerChoice == rock ? console.log("its a tie") : computerChoice == "paper" ? addScore("computer") : addScore("human");
             break;
-        case "paper":
-            computerChoice == "paper" ? console.log("its a tie") : computerChoice == "scissor" ? addScore("winner") : addScore("human");
+        case paper:
+            computerChoice == paper ? console.log("its a tie") : computerChoice == "scissor" ? addScore("computer") : addScore("human");
             break;
-        case "scissor":
-            computerChoice == "scissor" ? console.log("its a tie") : computerChoice == "rock" ? addScore("winner") : addScore("human");
+        case scissor:
+            computerChoice == scissor ? console.log("its a tie") : computerChoice == "rock" ? addScore("computer") : addScore("human");
             break;
     }
     console.log("human:" + humanScore + "\n" + "computer:" + computerScore)
 
 }
 function addScore(winner) {
-    if (winner = "computer") {
-        liComp.textContent = computerScore++
+    if (winner == "computer") {
+        computerScore++
+        liComp.textContent = "Computer Score: " + computerScore
     }
-    else if (winner = "human") {
-        liHuman.textContent = humanScore++;
+    else if (winner == "human") {
+        humanScore++
+        liHuman.textContent = "Human Score: " + humanScore
     }
 }
 //create a div and add a button in it
@@ -72,8 +74,8 @@ btn.textContent = "Play Now!"
 ul = document.createElement("ul")
 liHuman = document.createElement("li")
 liComp = document.createElement("li")
-liHuman.textContent = "Human score:" + humanScore
-liComp.textContent = "Computer score: " + computerScore;
+liHuman.textContent = "Human score: " +humanScore
+liComp.textContent = "Computer score: "+computerScore
 //add the list to the div
 ul.appendChild(liHuman)
 ul.appendChild(liComp)
@@ -95,4 +97,13 @@ function addButton() {
     div.appendChild(btnPaper)
     div.appendChild(btnScissor)
 }
-
+//When the buttons are click 
+btnRock.addEventListener('click', () => {
+    compare(rock,getComputerChoice())
+})
+btnPaper.addEventListener('click', ()=>{
+    compare(paper,getComputerChoice())
+})
+btnScissor.addEventListener('click',()=>{
+    compare(scissor,getComputerChoice())
+})
