@@ -1,61 +1,16 @@
-<script>
-    // 1.Create a new function named getComputerChoice
-    // 2. Write the code so that getComputerChoice will randomly return one of the following string values: “rock”, “paper” or “scissors”.
-    let getComputerChoice = () => {
-        let r = getRandomInt(3)
-        return toRPS(r)
-    }
-    //1a. create a function that generate random integer from 0 to 2 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
-    //1.b assign random number to strings 
-    function toRPS(r) {
-        let ret;
-        if (r == 0)
-            ret = "rock";
-        if (r == 1)
-            ret = "paper";
-        if (r == 2) {
-            ret = "scissor"
-        }
-        return ret;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    // for (let i = 0; i < 5; i++) {
-    //     getComputerChoice()
-    // }\
-    // Create a new function named getHumanChoice.
-    function getHumanChoice(r) {
-        return prompt("rock paper scissor?");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
+<body>
+    <div></div>
+    <script src="rps.js"></script>
 
-    }
-    // Write the code so that getHumanChoice will return one of the valid choices depending on what the user inputs.
+</body>
 
-    let humanScore = 0;
-    let computerScore = 0;
-    function playRound(humanChoice, computerChoice) {
-
-        switch (humanChoice) {
-            case "rock":
-                computerChoice == "rock" ? console.log("its a tie") : computerChoice == "paper" ? computerScore++ : humanScore++;
-                break;
-            case "paper":
-                computerChoice == "paper" ? console.log("its a tie") : computerChoice == "scissor" ? computerScore++ : humanScore++;
-                break;
-            case "scissor":
-                computerChoice == "scissor" ? console.log("its a tie") : computerChoice == "rock" ? computerScore++ : humanScore++;
-                break;
-        }
-        console.log("human:" + humanScore + "\n" + "computer:" + computerScore)
-    }
-//so we can decide how many game to play
-    function playgame(round) {
-        while (round != 0) {
-            playRound(getHumanChoice(), getComputerChoice())
-            round--;
-        }
-    }
-    playgame(5); 
-</script>
+</html>

@@ -1,8 +1,13 @@
+//value initiation
+let rock = "rock" 
+let paper = "paper"
+let scissor = "scissor"
+
 // 1.Create a new function named getComputerChoice
 // 2. Write the code so that getComputerChoice will randomly return one of the following string values: “rock”, “paper” or “scissors”.
 let getComputerChoice = () => {
     let r = getRandomInt(3)
-    console.log(toRPS(r))
+    return toRPS(r)
 }
 //1a. create a function that generate random integer from 0 to 2 
 function getRandomInt(max) {
@@ -12,18 +17,82 @@ function getRandomInt(max) {
 function toRPS(r) {
     let ret;
     if (r == 0)
-        ret = "Rock";
+        ret = rock
     if (r == 1)
-        ret = "Paper";
+        ret = paper;
     if (r == 2) {
-        ret = "Scissor"
+        ret = scissor
     }
     return ret;
 }
 
-for (let i = 0; i < 5; i++) {
-    getComputerChoice()
+// for (let i = 0; i < 5; i++) {
+//     getComputerChoice()
+// }\
+// Create a new function named getHumanChoice.
+function getHumanChoice(r) {
+    return prompt("rock paper scissor?");
+
+
+}
+// Write the code s</script> that getHumanChoice will return one of the valid choices depending on what the user inputs.
+
+let humanScore = 0;
+let computerScore = 0;
+function compare(humanChoice, computerChoice) {
+
+    switch (humanChoice) {
+        case "rock":
+            computerChoice == "rock" ? console.log("its a tie") : computerChoice == "paper" ? addScore("winner") : addScore("human");
+            break;
+        case "paper":
+            computerChoice == "paper" ? console.log("its a tie") : computerChoice == "scissor" ? addScore("winner") : addScore("human");
+            break;
+        case "scissor":
+            computerChoice == "scissor" ? console.log("its a tie") : computerChoice == "rock" ? addScore("winner") : addScore("human");
+            break;
+    }
+    console.log("human:" + humanScore + "\n" + "computer:" + computerScore)
+
+}
+function addScore(winner) {
+    if (winner = "computer") {
+        liComp.textContent = computerScore++
+    }
+    else if (winner = "human") {
+        liHuman.textContent = humanScore++;
+    }
+}
+//create a div and add a button in it
+div = document.querySelector("div")
+btn = document.createElement("button")
+div.appendChild(btn)
+btn.textContent = "Play Now!"
+//make a list to keep track of the score 
+ul = document.createElement("ul")
+liHuman = document.createElement("li")
+liComp = document.createElement("li")
+liHuman.textContent = "Human score:" + humanScore
+liComp.textContent = "Computer score: " + computerScore;
+//add the list to the div
+ul.appendChild(liHuman)
+ul.appendChild(liComp)
+div.appendChild(ul)
+//create button for rock paper scissor 
+btnRock = document.createElement("button")
+btnPaper = document.createElement("button")
+btnScissor = document.createElement("button")
+//creae three button for player choice
+btnRock.textContent = "Rock"
+btnPaper.textContent = "Paper"
+btnScissor.textContent = "Scissor"
+//When PlayNow is Click game options show up 
+btn.addEventListener('click', () => {
+    addButton();
+})
+function addButton() {
+    div.appendChild(btnRock)
+    div.appendChild(btnPaper)
+    div.appendChild(btnScissor)
 }
 
-// Create a new function named getHumanChoice.
-// Write the code so that getHumanChoice will return one of the valid choices depending on what the user inputs.
