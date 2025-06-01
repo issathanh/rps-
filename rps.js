@@ -41,7 +41,7 @@ let humanScore = 0;
 let computerScore = 0;
 //compare increase the score of whoever win in rock paper scissor 
 function compare(humanChoice, computerChoice) {
-    
+    printCompChoice(computerChoice)
     switch (humanChoice) {
         case rock: 
             computerChoice == rock ? console.log("its a tie") : computerChoice == "paper" ? addScore("computer") : addScore("human");
@@ -110,5 +110,10 @@ btnScissor.addEventListener('click',()=>{
     compare(scissor,getComputerChoice())
 })
 
+//print computer choice 
 compChoiceHeader = document.createElement("h3")
 div.appendChild(compChoiceHeader)
+
+function printCompChoice(getComputerChoice){
+    compChoiceHeader.textContent = "comp choice: " + getComputerChoice; 
+}
