@@ -1,5 +1,5 @@
 //value initiation
-let rock = "rock" 
+let rock = "rock"
 let paper = "paper"
 let scissor = "scissor"
 
@@ -43,7 +43,7 @@ let computerScore = 0;
 function compare(humanChoice, computerChoice) {
     printCompChoice(computerChoice)
     switch (humanChoice) {
-        case rock: 
+        case rock:
             computerChoice == rock ? console.log("its a tie") : computerChoice == "paper" ? addScore("computer") : addScore("human");
             break;
         case paper:
@@ -76,8 +76,8 @@ btn.textContent = "Play Now!"
 ul = document.createElement("ul")
 liHuman = document.createElement("li")
 liComp = document.createElement("li")
-liHuman.textContent = "Human score: " +humanScore
-liComp.textContent = "Computer score: "+computerScore
+liHuman.textContent = "Human score: " + humanScore
+liComp.textContent = "Computer score: " + computerScore
 //add the list to the div
 ul.appendChild(liHuman)
 ul.appendChild(liComp)
@@ -101,19 +101,25 @@ function addButton() {
 }
 //When the buttons are click 
 btnRock.addEventListener('click', () => {
-    compare(rock,getComputerChoice())
+    if (max(humanScore,computerScore))
+        compare(rock, getComputerChoice())
 })
-btnPaper.addEventListener('click', ()=>{
-    compare(paper,getComputerChoice())
+btnPaper.addEventListener('click', () => {
+    if (max(humanScore,computerScore))
+        compare(paper, getComputerChoice())
 })
-btnScissor.addEventListener('click',()=>{
-    compare(scissor,getComputerChoice())
+btnScissor.addEventListener('click', () => {
+    if (max(humanScore,computerScore))
+        compare(scissor, getComputerChoice())
 })
 
 //print computer choice 
 compChoiceHeader = document.createElement("h3")
 div.appendChild(compChoiceHeader)
 
-function printCompChoice(getComputerChoice){
-    compChoiceHeader.textContent = "comp choice: " + getComputerChoice; 
+function printCompChoice(getComputerChoice) {
+    compChoiceHeader.textContent = "comp choice: " + getComputerChoice;
 }
+
+//check if human score and computer score is bigger than 5 
+let max = (humanScore, computerScore) => humanScore < 5 && computerScore < 5 ? true : false 
